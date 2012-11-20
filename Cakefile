@@ -9,4 +9,4 @@ task 'build', 'Compile and move to assets', ->
   ].join(' && '), (err) ->
     throw err if err
   )
-# coffee --output assets/js --watch --join --compile src/*coffee
+# coffee --join assets/js/mornasith.js --watch --compile src/*coffee

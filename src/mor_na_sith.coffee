@@ -6,6 +6,7 @@ class MorNaSith
   constructor: ->
     @drawCanvas()
     @getContext()
+    @drawBackground()
 
 
   drawCanvas: ->
@@ -18,5 +19,9 @@ class MorNaSith
   getContext: ->
     @canvasContext = @canvas.getContext '2d'
 
+
+  drawBackground: ->
+    @grass = new Sprite('grass.png')
+    @canvasContext.drawImage(@grass.image, 1, 1, 100, 100)
 
 window.MorNaSith = MorNaSith
