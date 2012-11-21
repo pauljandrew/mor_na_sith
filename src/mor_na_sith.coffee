@@ -22,6 +22,6 @@ class MorNaSith
 
   drawBackground: ->
     @grass = new Sprite('grass.png')
-    @canvasContext.drawImage(@grass.image, 1, 1, 100, 100)
+    @canvasContext.drawImage(@grass.image, 10, 1, 100, 100)
 
 window.MorNaSith = MorNaSith

@@ -1,2 +1,4 @@
 .DS_Store
 assets/js/*js
+assets/css/*.css
+.sass-cache
