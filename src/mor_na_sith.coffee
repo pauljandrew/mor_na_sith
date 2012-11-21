@@ -6,8 +6,11 @@ class MorNaSith
   constructor: ->
     @drawCanvas()
     @getContext()
+    @sprites = []
     @drawBackground()
 
+    @canvasContext.fillText("WOOOOOooOOOARGH", 10, 10)
+    @tick()
 
   drawCanvas: ->
     @canvas = document.createElement 'canvas'
@@ -22,6 +25,17 @@ class MorNaSith
 
   drawBackground: ->
     @grass = new Sprite('grass.png')
-    @canvasContext.drawImage(@grass.image, 10, 1, 100, 100)
+    @sprites.push(@grass)
+
+  tick: =>
+    @drawWorld()
+
+    setTimeout @tick, 100
+
+
+  drawWorld: ->
+    for sprite in @sprites
+      @canvasContext.drawImage(sprite.image, 10, 1, 100, 100)
+
 
 window.MorNaSith = MorNaSith
