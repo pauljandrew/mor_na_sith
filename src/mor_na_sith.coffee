@@ -2,8 +2,8 @@ class MorNaSith
 
   canvas: null
   canvasContext: null
-  canvasHeight = 640
-  canvasWidth = 640
+  canvasHeight = 540
+  canvasWidth = 540
 
   constructor: ->
     @drawCanvas()
@@ -29,13 +29,23 @@ class MorNaSith
   drawBackground: ->
     @grass = new GameImage('grass.png', 0, 0, canvasHeight, canvasWidth)
     @square = new GameImage('square.png', 150, 350, 16, 16)
+    @lad = new GameImage('balach.png', 130, 150, 30, 40)
     @images.push(@grass)
     @images.push(@square)
+    @images.push(@lad)
 
   tick: =>
     @drawWorld()
-    if @uiListener.currentKey
-      console.log(@uiListener.currentKey)
+    keyPressed = @uiListener.currentKey
+    if keyPressed?
+      if keyPressed == 37
+        @lad.x -= 10
+      else if keyPressed == 38
+        @lad.y -= 10
+      else if keyPressed == 39
+        @lad.x += 10
+      else if keyPressed == 40
+        @lad.y += 10
 
     setTimeout @tick, 100
 
