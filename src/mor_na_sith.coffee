@@ -6,10 +6,11 @@ class MorNaSith
   canvasWidth = 540
 
   constructor: ->
+    @images = []
+
     @drawCanvas()
     @getContext()
-    @images = []
-    @drawBackground()
+    @generateLevel(10)
     @uiListener = new UIListener()
     #@canvasContext.fillText("WOOOOOooOOOARGH", 10, 10)
     @tick()
@@ -26,13 +27,13 @@ class MorNaSith
     @canvasContext = @canvas.getContext '2d'
 
 
-  drawBackground: ->
+  generateLevel: (count) ->
     @grass = new GameImage('grass.png', 0, 0, canvasHeight, canvasWidth)
-    @square = new GameImage('square.png', 150, 350, 16, 16)
     @lad = new GameImage('balach.png', 130, 150, 30, 40)
     @images.push(@grass)
-    @images.push(@square)
     @images.push(@lad)
+    for i in [0..count] by 1
+      @images.push(new GameImage('square.png', 50 * i, 50 * i, 16, 16))
 
   tick: =>
     @drawWorld()
