@@ -6,7 +6,7 @@ class GameImage
   # height
 
   constructor: (@name, @x, @y, @width, @height) ->
-    image = new Image
+    image = new Image()
     image.src = @dir + @name
     image.onload = => @ready = true
     @image = image

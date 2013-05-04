@@ -10,8 +10,8 @@ class MorNaSith
     @getContext()
     @images = []
     @drawBackground()
-
-    @canvasContext.fillText("WOOOOOooOOOARGH", 10, 10)
+    @uiListener = new UIListener()
+    #@canvasContext.fillText("WOOOOOooOOOARGH", 10, 10)
     @tick()
 
   drawCanvas: ->
@@ -34,6 +34,8 @@ class MorNaSith
 
   tick: =>
     @drawWorld()
+    if @uiListener.currentKey
+      console.log(@uiListener.currentKey)
 
     setTimeout @tick, 100
 
